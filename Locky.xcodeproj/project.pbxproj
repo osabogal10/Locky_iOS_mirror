@@ -1,0 +1,625 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C4366C117BE400AADCEFDEB /* Pods_Locky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE382DAEB6BFB0B5A74708D6 /* Pods_Locky.framework */; };
+		552F7EF7227370C900EC71DA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552F7EF6227370C900EC71DA /* NetworkManager.swift */; };
+		5533F9E82270CB50003B27C0 /* ReservaBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533F9E72270CB50003B27C0 /* ReservaBack.swift */; };
+		553833782273A3380053DDB5 /* ReservaFin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553833772273A3380053DDB5 /* ReservaFin.swift */; };
+		5557CB0D22487529009B7190 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557CB0C22487529009B7190 /* LaunchController.swift */; };
+		5593B5D6223D560F0054D94E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B5D5223D560F0054D94E /* SearchViewController.swift */; };
+		5593B5D8223D577E0054D94E /* MyLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B5D7223D577E0054D94E /* MyLocker.swift */; };
+		5597CC782241A1CE006B77AA /* CustomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5597CC772241A1CD006B77AA /* CustomItemView.xib */; };
+		5597CC7C2241A21A006B77AA /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597CC7A2241A219006B77AA /* Themes.swift */; };
+		5597CC7D2241A21A006B77AA /* places.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 5597CC7B2241A21A006B77AA /* places.geojson */; };
+		55E4BF04223B1A6000BE62F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4BF03223B1A6000BE62F1 /* AppDelegate.swift */; };
+		55E4BF06223B1A6000BE62F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4BF05223B1A6000BE62F1 /* ViewController.swift */; };
+		55E4BF09223B1A6000BE62F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E4BF07223B1A6000BE62F1 /* Main.storyboard */; };
+		55E4BF0B223B1A6100BE62F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E4BF0A223B1A6100BE62F1 /* Assets.xcassets */; };
+		55E4BF0E223B1A6100BE62F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E4BF0C223B1A6100BE62F1 /* LaunchScreen.storyboard */; };
+		55FB5A6D223C6DA200395493 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FB5A6C223C6DA200395493 /* Search.storyboard */; };
+		55FB5A6F223C6DC600395493 /* MyLocker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FB5A6E223C6DC600395493 /* MyLocker.storyboard */; };
+		55FB5A71223C6DDA00395493 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FB5A70223C6DDA00395493 /* Profile.storyboard */; };
+		D2128AA62241AB2D00487BBD /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2128AA52241AB2D00487BBD /* Usuario.swift */; };
+		D2128AA82245903100487BBD /* ReservaHora.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2128AA72245903100487BBD /* ReservaHora.swift */; };
+		D2256E01224A79980072F630 /* Reserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2256E00224A79970072F630 /* Reserva.swift */; };
+		D2256E05224A8FC60072F630 /* DetailMyLockerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2256E04224A8FC60072F630 /* DetailMyLockerController.swift */; };
+		D2ACB44D22417DE300ADDA20 /* Lugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ACB44C22417DE300ADDA20 /* Lugar.swift */; };
+		D2ACB44F2241846700ADDA20 /* ReservarCasillero.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ACB44E2241846700ADDA20 /* ReservarCasillero.storyboard */; };
+		D2ACB451224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ACB450224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift */; };
+		D2ACB4532241886200ADDA20 /* Locker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ACB4522241886200ADDA20 /* Locker.swift */; };
+		D2AE9BB2223DA55000BA27C4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE9BB1223DA55000BA27C4 /* ProfileTableViewController.swift */; };
+		D2AE9BB8224041AC00BA27C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2AE9BB7224041AC00BA27C4 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3804352061023F8157632247 /* Pods-Locky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locky.release.xcconfig"; path = "Target Support Files/Pods-Locky/Pods-Locky.release.xcconfig"; sourceTree = "<group>"; };
+		552F7EF6227370C900EC71DA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5533F9E72270CB50003B27C0 /* ReservaBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaBack.swift; sourceTree = "<group>"; };
+		553833772273A3380053DDB5 /* ReservaFin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaFin.swift; sourceTree = "<group>"; };
+		5557CB0C22487529009B7190 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
+		5593B5D5223D560F0054D94E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5593B5D7223D577E0054D94E /* MyLocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocker.swift; sourceTree = "<group>"; };
+		5597CC772241A1CD006B77AA /* CustomItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomItemView.xib; sourceTree = "<group>"; };
+		5597CC7A2241A219006B77AA /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		5597CC7B2241A21A006B77AA /* places.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = places.geojson; sourceTree = "<group>"; };
+		55E4BF00223B1A6000BE62F1 /* Locky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E4BF03223B1A6000BE62F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		55E4BF05223B1A6000BE62F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55E4BF08223B1A6000BE62F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55E4BF0A223B1A6100BE62F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		55E4BF0D223B1A6100BE62F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		55E4BF0F223B1A6100BE62F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55FB5A6C223C6DA200395493 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		55FB5A6E223C6DC600395493 /* MyLocker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyLocker.storyboard; sourceTree = "<group>"; };
+		55FB5A70223C6DDA00395493 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8B5B39B7C029A2F5752A507C /* Pods-Locky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locky.debug.xcconfig"; path = "Target Support Files/Pods-Locky/Pods-Locky.debug.xcconfig"; sourceTree = "<group>"; };
+		D2128AA52241AB2D00487BBD /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		D2128AA72245903100487BBD /* ReservaHora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaHora.swift; sourceTree = "<group>"; };
+		D2256E00224A79970072F630 /* Reserva.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reserva.swift; sourceTree = "<group>"; };
+		D2256E04224A8FC60072F630 /* DetailMyLockerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMyLockerController.swift; sourceTree = "<group>"; };
+		D265FF99226FA64700B277EC /* Locky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Locky.entitlements; sourceTree = "<group>"; };
+		D2ACB44C22417DE300ADDA20 /* Lugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lugar.swift; sourceTree = "<group>"; };
+		D2ACB44E2241846700ADDA20 /* ReservarCasillero.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReservarCasillero.storyboard; sourceTree = "<group>"; };
+		D2ACB450224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservarCasilleroControllerViewController.swift; sourceTree = "<group>"; };
+		D2ACB4522241886200ADDA20 /* Locker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locker.swift; sourceTree = "<group>"; };
+		D2AE9BB1223DA55000BA27C4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		D2AE9BB7224041AC00BA27C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FE382DAEB6BFB0B5A74708D6 /* Pods_Locky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55E4BEFD223B1A6000BE62F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C4366C117BE400AADCEFDEB /* Pods_Locky.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52ACB6A06091F57C693AAE87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE382DAEB6BFB0B5A74708D6 /* Pods_Locky.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5593B5D2223D51FF0054D94E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				55E4BF05223B1A6000BE62F1 /* ViewController.swift */,
+				5593B5D5223D560F0054D94E /* SearchViewController.swift */,
+				5593B5D7223D577E0054D94E /* MyLocker.swift */,
+				D2AE9BB1223DA55000BA27C4 /* ProfileTableViewController.swift */,
+				D2ACB450224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift */,
+				5557CB0C22487529009B7190 /* LaunchController.swift */,
+				D2256E04224A8FC60072F630 /* DetailMyLockerController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5597CC792241A1D6006B77AA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5597CC7B2241A21A006B77AA /* places.geojson */,
+				5597CC7A2241A219006B77AA /* Themes.swift */,
+				552F7EF6227370C900EC71DA /* NetworkManager.swift */,
+			);
+			name = Utils;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		55E4BEF7223B1A6000BE62F1 = {
+			isa = PBXGroup;
+			children = (
+				55E4BF02223B1A6000BE62F1 /* Locky */,
+				55E4BF01223B1A6000BE62F1 /* Products */,
+				5D53022D6D8FBA760BADCA5E /* Pods */,
+				52ACB6A06091F57C693AAE87 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		55E4BF01223B1A6000BE62F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55E4BF00223B1A6000BE62F1 /* Locky.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55E4BF02223B1A6000BE62F1 /* Locky */ = {
+			isa = PBXGroup;
+			children = (
+				D265FF99226FA64700B277EC /* Locky.entitlements */,
+				5597CC792241A1D6006B77AA /* Utils */,
+				D2ACB44B22417D8800ADDA20 /* Models */,
+				5593B5D2223D51FF0054D94E /* ViewControllers */,
+				55FB5A6B223C6D5E00395493 /* Storyboards */,
+				55E4BF03223B1A6000BE62F1 /* AppDelegate.swift */,
+				55E4BF0A223B1A6100BE62F1 /* Assets.xcassets */,
+				55E4BF0C223B1A6100BE62F1 /* LaunchScreen.storyboard */,
+				55E4BF0F223B1A6100BE62F1 /* Info.plist */,
+				D2AE9BB7224041AC00BA27C4 /* GoogleService-Info.plist */,
+			);
+			path = Locky;
+			sourceTree = "<group>";
+		};
+		55FB5A6B223C6D5E00395493 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5597CC772241A1CD006B77AA /* CustomItemView.xib */,
+				55E4BF07223B1A6000BE62F1 /* Main.storyboard */,
+				55FB5A6C223C6DA200395493 /* Search.storyboard */,
+				55FB5A6E223C6DC600395493 /* MyLocker.storyboard */,
+				55FB5A70223C6DDA00395493 /* Profile.storyboard */,
+				D2ACB44E2241846700ADDA20 /* ReservarCasillero.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5D53022D6D8FBA760BADCA5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B5B39B7C029A2F5752A507C /* Pods-Locky.debug.xcconfig */,
+				3804352061023F8157632247 /* Pods-Locky.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D2ACB44B22417D8800ADDA20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2ACB44C22417DE300ADDA20 /* Lugar.swift */,
+				D2ACB4522241886200ADDA20 /* Locker.swift */,
+				D2128AA52241AB2D00487BBD /* Usuario.swift */,
+				D2128AA72245903100487BBD /* ReservaHora.swift */,
+				D2256E00224A79970072F630 /* Reserva.swift */,
+				5533F9E72270CB50003B27C0 /* ReservaBack.swift */,
+				553833772273A3380053DDB5 /* ReservaFin.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		55E4BEFF223B1A6000BE62F1 /* Locky */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55E4BF12223B1A6100BE62F1 /* Build configuration list for PBXNativeTarget "Locky" */;
+			buildPhases = (
+				EDB0545CD6D100F6737E8479 /* [CP] Check Pods Manifest.lock */,
+				55E4BEFC223B1A6000BE62F1 /* Sources */,
+				55E4BEFD223B1A6000BE62F1 /* Frameworks */,
+				55E4BEFE223B1A6000BE62F1 /* Resources */,
+				B74706CDED8DC91A95E48DFB /* [CP] Embed Pods Frameworks */,
+				B1B204C9927FA6396B97930E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Locky;
+			productName = Locky;
+			productReference = 55E4BF00223B1A6000BE62F1 /* Locky.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		55E4BEF8223B1A6000BE62F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Orlando Sabogal Rojas";
+				TargetAttributes = {
+					55E4BEFF223B1A6000BE62F1 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 55E4BEFB223B1A6000BE62F1 /* Build configuration list for PBXProject "Locky" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 55E4BEF7223B1A6000BE62F1;
+			productRefGroup = 55E4BF01223B1A6000BE62F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55E4BEFF223B1A6000BE62F1 /* Locky */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55E4BEFE223B1A6000BE62F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55FB5A71223C6DDA00395493 /* Profile.storyboard in Resources */,
+				55E4BF0E223B1A6100BE62F1 /* LaunchScreen.storyboard in Resources */,
+				55FB5A6F223C6DC600395493 /* MyLocker.storyboard in Resources */,
+				D2ACB44F2241846700ADDA20 /* ReservarCasillero.storyboard in Resources */,
+				55E4BF0B223B1A6100BE62F1 /* Assets.xcassets in Resources */,
+				55FB5A6D223C6DA200395493 /* Search.storyboard in Resources */,
+				5597CC782241A1CE006B77AA /* CustomItemView.xib in Resources */,
+				5597CC7D2241A21A006B77AA /* places.geojson in Resources */,
+				55E4BF09223B1A6000BE62F1 /* Main.storyboard in Resources */,
+				D2AE9BB8224041AC00BA27C4 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B1B204C9927FA6396B97930E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Locky/Pods-Locky-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Locky/Pods-Locky-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B74706CDED8DC91A95E48DFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Locky/Pods-Locky-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Locky/Pods-Locky-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDB0545CD6D100F6737E8479 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Locky-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55E4BEFC223B1A6000BE62F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5593B5D6223D560F0054D94E /* SearchViewController.swift in Sources */,
+				D2AE9BB2223DA55000BA27C4 /* ProfileTableViewController.swift in Sources */,
+				D2ACB451224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift in Sources */,
+				5533F9E82270CB50003B27C0 /* ReservaBack.swift in Sources */,
+				552F7EF7227370C900EC71DA /* NetworkManager.swift in Sources */,
+				55E4BF06223B1A6000BE62F1 /* ViewController.swift in Sources */,
+				553833782273A3380053DDB5 /* ReservaFin.swift in Sources */,
+				5597CC7C2241A21A006B77AA /* Themes.swift in Sources */,
+				5557CB0D22487529009B7190 /* LaunchController.swift in Sources */,
+				55E4BF04223B1A6000BE62F1 /* AppDelegate.swift in Sources */,
+				D2128AA62241AB2D00487BBD /* Usuario.swift in Sources */,
+				D2128AA82245903100487BBD /* ReservaHora.swift in Sources */,
+				D2256E01224A79980072F630 /* Reserva.swift in Sources */,
+				D2256E05224A8FC60072F630 /* DetailMyLockerController.swift in Sources */,
+				5593B5D8223D577E0054D94E /* MyLocker.swift in Sources */,
+				D2ACB44D22417DE300ADDA20 /* Lugar.swift in Sources */,
+				D2ACB4532241886200ADDA20 /* Locker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		55E4BF07223B1A6000BE62F1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55E4BF08223B1A6000BE62F1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		55E4BF0C223B1A6100BE62F1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55E4BF0D223B1A6100BE62F1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		55E4BF10223B1A6100BE62F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		55E4BF11223B1A6100BE62F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		55E4BF13223B1A6100BE62F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B5B39B7C029A2F5752A507C /* Pods-Locky.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Locky/Locky.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34P485UF6C;
+				INFOPLIST_FILE = Locky/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Team8.Locky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		55E4BF14223B1A6100BE62F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3804352061023F8157632247 /* Pods-Locky.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Locky/Locky.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34P485UF6C;
+				INFOPLIST_FILE = Locky/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Team8.Locky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		55E4BEFB223B1A6000BE62F1 /* Build configuration list for PBXProject "Locky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55E4BF10223B1A6100BE62F1 /* Debug */,
+				55E4BF11223B1A6100BE62F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55E4BF12223B1A6100BE62F1 /* Build configuration list for PBXNativeTarget "Locky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55E4BF13223B1A6100BE62F1 /* Debug */,
+				55E4BF14223B1A6100BE62F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 55E4BEF8223B1A6000BE62F1 /* Project object */;
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CzB-hE-cGx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="SnM-6F-gNS">
+            <objects>
+                <viewController storyboardIdentifier="ProfileTableViewController" id="CzB-hE-cGx" customClass="ProfileTableViewController" customModule="Locky" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fIO-c7-cT7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lO4-ba-GCa">
+                                <rect key="frame" x="0.0" y="459" width="375" height="159"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" focusStyle="custom" id="kf8-EY-IZd">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kf8-EY-IZd" id="v1d-Vp-Vlh">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CzB-hE-cGx" id="9Ua-sP-WZU"/>
+                                    <outlet property="delegate" destination="CzB-hE-cGx" id="xJY-xo-sAM"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="e.reyesm@uniandes.edu.co" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeK-Zg-5gM">
+                                <rect key="frame" x="82" y="293" width="211" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nFs-aI-l7a">
+                                <rect key="frame" x="106" y="55" width="163" height="134"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Esteban Reyes Marcelo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-UQ-PPE">
+                                <rect key="frame" x="117" y="354" width="141" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GuZ-UQ-PPE" firstAttribute="top" secondItem="jeK-Zg-5gM" secondAttribute="bottom" constant="37" id="1ih-Tg-TOG"/>
+                            <constraint firstItem="lO4-ba-GCa" firstAttribute="top" secondItem="GuZ-UQ-PPE" secondAttribute="bottom" constant="89" id="6D9-KH-Fh4"/>
+                            <constraint firstItem="GuZ-UQ-PPE" firstAttribute="leading" secondItem="H1M-Gc-o8i" secondAttribute="leading" constant="109" id="Ciz-b2-y1E"/>
+                            <constraint firstItem="lO4-ba-GCa" firstAttribute="bottom" secondItem="H1M-Gc-o8i" secondAttribute="bottom" id="FYP-ad-pa6"/>
+                            <constraint firstItem="nFs-aI-l7a" firstAttribute="leading" secondItem="H1M-Gc-o8i" secondAttribute="leading" constant="106" id="GQf-gj-9GT"/>
+                            <constraint firstItem="H1M-Gc-o8i" firstAttribute="trailing" secondItem="nFs-aI-l7a" secondAttribute="trailing" constant="106" id="Hko-Vl-D8b"/>
+                            <constraint firstItem="jeK-Zg-5gM" firstAttribute="centerX" secondItem="lO4-ba-GCa" secondAttribute="centerX" id="TCb-7p-cAJ"/>
+                            <constraint firstItem="nFs-aI-l7a" firstAttribute="top" secondItem="H1M-Gc-o8i" secondAttribute="top" constant="35" id="VOB-tl-aQx"/>
+                            <constraint firstItem="jeK-Zg-5gM" firstAttribute="centerX" secondItem="nFs-aI-l7a" secondAttribute="centerX" id="Y0T-9K-hhR"/>
+                            <constraint firstItem="lO4-ba-GCa" firstAttribute="leading" secondItem="fIO-c7-cT7" secondAttribute="leading" id="fyn-wY-LC8"/>
+                            <constraint firstItem="jeK-Zg-5gM" firstAttribute="top" secondItem="fIO-c7-cT7" secondAttribute="top" constant="296" id="gQN-ki-jcO"/>
+                            <constraint firstItem="jeK-Zg-5gM" firstAttribute="top" secondItem="nFs-aI-l7a" secondAttribute="bottom" constant="107" id="y7U-2o-HMj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H1M-Gc-o8i"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user_male" id="pfQ-ra-YhV"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="TableView" destination="lO4-ba-GCa" id="cka-ld-a0I"/>
+                        <outlet property="imagenProfile" destination="nFs-aI-l7a" id="RDB-ih-lUg"/>
+                        <outlet property="labEmail" destination="jeK-Zg-5gM" id="sjO-JG-uEu"/>
+                        <outlet property="labName" destination="GuZ-UQ-PPE" id="CJX-bU-VuA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsd-i6-KRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61.600000000000001" y="320.68965517241384"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="user_male" width="30" height="30"/>
+    </resources>
+</document>
