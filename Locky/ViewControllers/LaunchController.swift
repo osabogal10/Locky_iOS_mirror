@@ -16,7 +16,8 @@ import FirebaseUI
 
 class LaunchController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, FUIAuthDelegate, GIDSignInDelegate {
     
-    
+    var networkManager: NetworkManager = NetworkManager()
+   
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
             print("Faild to login  with google", err)
@@ -42,6 +43,14 @@ class LaunchController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUID
             preferences.set(url!, forKey: key)
             preferences.set(email!, forKey: "emailPerfil")
             preferences.set(name!, forKey: "namePerfil")
+            preferences.set("google", forKey: "manera")
+            
+            self.networkManager.getUsuario(byEmail: email!, completion: { (user) in
+                if let id = user?.id{
+                    preferences.set(id, forKey: "idPerfil")
+                    print("guardando en UserData",id)
+                }
+            })
             
             //  Save to disk
             let didSave = preferences.synchronize()
@@ -65,7 +74,8 @@ class LaunchController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUID
     override func viewDidLoad() {
         super.viewDidLoad()
          downloadMap()
-       
+        
+
         //--- imagen inicio
         /*
         ImagenInicio!.image = UIImage(named: "lockerOrig")
@@ -76,6 +86,19 @@ class LaunchController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUID
         setUpFacebookButtons()
         setUpGoogleButtons()
         setUpEmailButtons()
+        
+        let preferences = UserDefaults.standard
+        
+        let key = "manera"
+        
+        print("Guardado en manera ---- \(preferences.object(forKey: key) as? String)")
+        if preferences.object(forKey: key) == nil || preferences.object(forKey: key) as? String == "nada" {
+            
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1, execute: {self.performSegue(withIdentifier: "Splash", sender: nil)})
+        }
+        
+        
         
         //downloadMap()
         //DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1, execute: {self.performSegue(withIdentifier: "Splash", sender: nil)})
@@ -201,14 +224,32 @@ class LaunchController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUID
         
         //authDataResult?.user.uid
         //Mandar a home
-       
+        let preferences = UserDefaults.standard
+        
+        let key = "urlImagenPerfil"
+        
+        preferences.set("nada", forKey: key)
+        preferences.set(authDataResult?.user.email!, forKey: "emailPerfil")
+        preferences.set(authDataResult?.user.displayName!, forKey: "namePerfil")
+        preferences.set("correoNormal", forKey: "manera")
+        
+        //  Save to disk
+        let didSave = preferences.synchronize()
+        
+        if !didSave {
+            //  Couldn't save (I've never seen this happen in real world testing)
+            print("No guardo en las preferencias")
+        }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1, execute: {self.performSegue(withIdentifier: "Splash", sender: nil)})
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
          print("did log out of facebook")
     }
-    
+
+    func cerrarFacebook() {
+       
+    }
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil {
             print(error)
@@ -249,6 +290,7 @@ class LaunchController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUID
                 preferences.set(url, forKey: key)
                 preferences.set(email, forKey: "emailPerfil")
                 preferences.set(name, forKey: "namePerfil")
+                preferences.set("facebook", forKey: "manera")
                 
                 //  Save to disk
                 let didSave = preferences.synchronize()

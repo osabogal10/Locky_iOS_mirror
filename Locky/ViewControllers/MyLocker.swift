@@ -7,22 +7,26 @@
 //
 
 import UIKit
-import Firebase
+
 
 
 class MyLocker: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var TableView: UITableView!
-    var ref :DatabaseReference!
+
+    
+    
     var imagen :UIImageView? = nil
-    let listaCeldas = ["Reserva 1", "Reserva 2", "Reserva 3"]
+
     let imagenAccessoryView = UIImage(named: "ruta")
-    var lockerLibre :Locker = Locker(pId: "PRUEBA", pNumero: 0, pTamano: "", pPrecio: 0.0, pEstado: "", pLugar: "", pReservas: [ReservaHora]())
-    var data :[Locker] = [Locker(pId: "PRUEBA", pNumero: 0, pTamano: "", pPrecio: 0.0, pEstado: "", pLugar: "", pReservas: [ReservaHora]())]
-    var reservas :[Reserva] = [Reserva(pId: "Aun no tiene reservas", pIdLocker: "", pIdUsuario: "", pLugarReserva: "", pPrecioTotal: 0.0, pTiempoFin: 0, pTiempoInicio: 0, pTiempoRetorno: 0)]
+    let vacio = ReservaHistorial(locker_id: 0, usuario_id: 0, precio_total: 0, tiempo_fin: "", tiempo_inicio: "", tiempo_retorno: "", nombre_lugar: "No tienes reservas activas")
+    var reservas: [ReservaHistorial] = []
+    let net : NetworkManager = NetworkManager()
+    let preferences = UserDefaults.standard
     
     
     
     override func viewDidLoad() {
+        reservas  = [vacio]
         /*
         let net : NetworkManager = NetworkManager()
         net.getHistorialReservas(byId: "1") {(reservas) in
@@ -32,167 +36,57 @@ class MyLocker: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 print("gg")
             }
         }*/
-        let net : NetworkManager = NetworkManager()
-        net.postFinReserva(forIdReserva: 4, precioTotal: 10000 ) {(reserva) in
-            if let respuesta = reserva?.tiempoRetorno{
-                print(respuesta)
-            } else {
-                print("gg")
-            }
-        }
+        
+        
         
         super.viewDidLoad()
         self.TableView.delegate = self
         self.TableView.dataSource = self
-        self.ref = Database.database().reference()
+        //getReservas()
         //self.inicializarLockers(pLugarLockers: "Parque Germania")
         //self.agregarReservacionLocker(pLugar: "Parque de la 93", pLocker: "Parque de la 93 - locker3", pIdReserva: "idReserva", pTiempoInicio: 123456789, pTiempoFin: 987654321)
         //self.agregarReservacionUsuario(pIdUsuario: "EstebanR1099", pLugar: "Parque de la 93", pLocker: "Parque de la 93 - locker3", pIdReserva: "idReserva", pTiempoInicio: 123456789, pTiempoFin: 987654321, pPrecioTotal: 5000.0)
         //self.agregarReservacionReservaciones(pIdUsuario: "EstebanR1099", pLugar: "Parque de la 93", pLocker: "Parque de la 93 - locker3", pIdReserva: "idReserva", pTiempoInicio: 123456789, pTiempoFin: 987654321, pPrecioTotal: 5000.0)
         
         // Do any additional setup after loading the view.
-        self.inicializarReservasUsuario(pUsuarioConsulta: "EstebanR1099")
+        //self.inicializarReservasUsuario(pUsuarioConsulta: "EstebanR1099")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Aca pasan cosas")
+        getReservas()
     }
     
     //Jugano con firebase.
     
-    //Agregar un usuario -- toca mejorarlo segunda entrega
-    func agregarUsuario() {
-        self.ref.child("Usuarios/EstebanR1099/nombre").setValue("Esto es una prueba")
+    @IBAction func refreshButton(_ sender: Any) {
+        getReservas()
     }
     
-    //Agregar una reserva al sistema
-    func agregarReservacionAlSistema(idUsuario :String, lugar :String, locker :String, idReserva :String, tiempoInicio :Int, tiempoFin :Int, precioTotal :Double) {
-        print("Va a agregar una reservacion al sistemas")
-        
-        self.agregarReservacionLocker(pLugar: lugar, pLocker: locker, pIdReserva: idReserva, pTiempoInicio: tiempoInicio, pTiempoFin: tiempoFin)
-        self.agregarReservacionUsuario(pIdUsuario: idUsuario, pLugar: lugar, pLocker: locker, pIdReserva: idReserva, pTiempoInicio: tiempoInicio, pTiempoFin: tiempoFin, pPrecioTotal: precioTotal)
-        self.agregarReservacionReservaciones(pIdUsuario: idUsuario, pLugar: lugar, pLocker: locker, pIdReserva: idReserva, pTiempoInicio: tiempoInicio, pTiempoFin: tiempoFin, pPrecioTotal: precioTotal)
-        
-        print("Agrego una reservacion al sistema")
-    }
     
-    //Agregar una reservacion al locker.
-    func agregarReservacionLocker(pLugar :String, pLocker :String, pIdReserva :String, pTiempoInicio :Int, pTiempoFin :Int) {
-        print("Va a agregar una reservacion a un locker")
-        self.ref.child("Lugares").child(pLugar).child("Lockers").child(pLocker).child("Reservaciones").child(pIdReserva).setValue(["id":pIdReserva, "tiempoFin":pTiempoFin, "tiempoInicio":pTiempoInicio])
-        
-        self.ref.child("Lugares").child(pLugar).child("Lockers").child(pLocker).child("estado").setValue("Reservado")
-        
-        print("Agrego una reservacion a un locker")
-    }
-    //Agregar una reservacion al usuario.
-    func agregarReservacionUsuario(pIdUsuario :String, pLugar :String, pLocker :String, pIdReserva :String, pTiempoInicio :Int, pTiempoFin :Int, pPrecioTotal :Double) {
-        print("Va a agregar una reservacion a un usuario")
-        self.ref.child("Usuarios").child(pIdUsuario).child("Reservaciones").child(pIdReserva).setValue(["id":pIdReserva, "idLocker":pLocker, "idUsuario":pIdUsuario, "lugarReserva":pLugar, "precioTotal":pPrecioTotal, "tiempoFin":pTiempoFin, "tiempoInicio":pTiempoInicio, "tiempoRetorno":0])
-        
-        print("Agrego una reservacion a un usuario")
-    }
-    //Agrega una reservacion a las reservaciones
-    func agregarReservacionReservaciones(pIdUsuario :String, pLugar :String, pLocker :String, pIdReserva :String, pTiempoInicio :Int, pTiempoFin :Int, pPrecioTotal :Double) {
-        print("Va a agregar una reservacion a reservas")
-        self.ref.child("Reservaciones").child(pIdReserva).setValue(["id":pIdReserva, "idLocker":pLocker, "idUsuario":pIdUsuario, "lugarReserva":pLugar, "precioTotal":pPrecioTotal, "tiempoFin":pTiempoFin, "tiempoInicio":pTiempoInicio, "tiempoRetorno":0])
-        
-        print("Agrego una reservacion a un reservas")
-    }
-    
-    //--- leer los lockers de un lugar
-    func inicializarLockers(pLugarLockers :String) {
-        descargarLockersLugar(pLugar: pLugarLockers){arreglo in
-            self.data = arreglo
-            self.TableView.reloadData()
-            print("\(self.data.count) numero elementos data OUT")
-            self.filtarLocker(pTamano: "Grande", pTiempoInicio: 123456789, pTiempoFin: 987654321)
-            print("\(self.lockerLibre.id) ---- el id del locker que se encuentra libre")
-            //Hacer las funciones para filtrar
+    func getReservas(){
+        var user_id:String = "1"
+        if preferences.object(forKey: "idPerfil") == nil {
+            //  Doesn't exist
+            print("Perrito no encontro nada con esa key")
+        } else {
+            user_id = "\((preferences.object(forKey: "idPerfil") as? Int)!)"
         }
-    }
-    
-    
-    func descargarLockersLugar(pLugar :String, completion: @escaping ([Locker]) -> Void) {
-        var lockerArray = [Locker] ()
-        ref.child("Lugares").child("\(pLugar)").queryOrderedByKey().observe( .value, with: { (snapshot) in
-            // Get locker value
-            if var snap = snapshot.value as? [String : AnyObject] {
-                let lugar = snapshot.key
-                print("\(lugar)--------------------------lugar")
-                if let lockers = snap["Lockers"] as? [String : AnyObject] {
-                    for locker in lockers {
-                        if var infoLocker = locker.value as? [String : AnyObject] {
-                            let idLocker = locker.key
-                            let numero = infoLocker["numero"] as? Int
-                            let estado = infoLocker["estado"] as? String
-                            let precio = infoLocker["precioHora"] as? Double
-                            let tamano = infoLocker["tamano"] as? String
-                            print("\(idLocker)--------------------------id locker")
-                            print("\(numero!)--------------------------numero")
-                            print("\(estado!)--------------------------estado")
-                            print("\(precio!)--------------------------precio")
-                            print("\(tamano!)--------------------------tamano")
-                            var listaReservasLocker :[ReservaHora] = []
-                            var reservaLocker :ReservaHora? = nil
-                            if let reservas = infoLocker["Reservaciones"] as? [String : AnyObject] {
-                                for reserva in reservas {
-                                    print("Reservaciones")
-                                    if var infoReserva = reserva.value as? [String : AnyObject] {
-                                        let idReserva = reserva.key
-                                        let horaInicio = infoReserva["tiempoInicio"] as? Int
-                                        let horaFin = infoReserva["tiempoFin"] as? Int
-                                        print("\(idReserva)--------------------------id reserva")
-                                        print("\(horaInicio!)--------------------------hora inicio")
-                                        print("\(horaFin!)--------------------------hora fin")
-                                        reservaLocker = ReservaHora(pId: idReserva, pHoraInicio: horaInicio!, pHoraFin: horaFin!)
-                                        listaReservasLocker.append(reservaLocker!)
-                                    }
-                                }
-                            }
-                            let locker :Locker = Locker(pId: idLocker, pNumero: numero!, pTamano: tamano!, pPrecio: precio!, pEstado: estado!, pLugar: lugar, pReservas: listaReservasLocker)
-                            print("\(locker)-------------------------- Locker")
-                            lockerArray.append(locker)
-                        }
-                    }
-                }
+        net.getReservasActuales(byId: user_id) { (response) in
+            print("Hay \(response?.count) reservas")
+            if (response?.count)! > 0{
+                self.reservas = response!
+            }
+            else{
+                self.reservas = [self.vacio]
             }
             self.TableView.reloadData()
-            completion (lockerArray)
-        }) { (error) in
-            print("Hubo un error cargardo el locker -----")
-        }
-    }
-    
-    //Filtar el primer locker libre que cumpla con el tamano y
-    func filtarLocker(pTamano :String, pTiempoInicio :Int, pTiempoFin :Int) {
-        if self.data.isEmpty == false {
-            var tamano :String
-            var tiempoInicio :Int
-            var estaSinReserva :Bool = true
-            var tiempoFin :Int
-            for locker in self.data {
-                if locker.estado == "Disponible" {
-                    tamano = locker.tamano
-                    if tamano == pTamano {
-                        for reserva in locker.reservas {
-                            tiempoInicio = reserva.horaInicio
-                            tiempoFin = reserva.horaFin
-                            if (tiempoInicio < pTiempoInicio && tiempoFin < pTiempoInicio) || (tiempoInicio > pTiempoInicio && tiempoFin > pTiempoFin){
-                                estaSinReserva = true
-                            } else{
-                                estaSinReserva = false
-                                break
-                            }
-                        }
-                        if estaSinReserva == true {
-                            self.lockerLibre = locker
-                            break
-                        }
-                    }
-                }
-            }
         }
     }
     
     //--- leer las reservas de un usuario
+/*
     func inicializarReservasUsuario(pUsuarioConsulta :String) {
         descargarReservasUsuario(pUsuario: pUsuarioConsulta) {arreglo in
             self.reservas = arreglo
@@ -237,6 +131,8 @@ class MyLocker: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("Hubo un error cargardo el locker -----")
         }
     }
+ 
+ */
     func estaYaEsaReserva (array :[Reserva], idReserva :String) -> Bool {
         for reserva in array {
             if reserva.id == idReserva {
@@ -252,7 +148,7 @@ class MyLocker: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell\(indexPath.row)")
-        cell.textLabel?.text = self.reservas[indexPath.row].lugarReserva
+        cell.textLabel?.text = self.reservas[indexPath.row].nombre_lugar
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         imagen = UIImageView(image: UIImage(named: "locker"))
         let templateImagen = imagen!.image?.withRenderingMode(.alwaysTemplate)

@@ -24,8 +24,9 @@ class ReservaBack: NSObject, Codable {
     var tiempoFin :String?
     var tiempoInicio :String?
     var tiempoRetorno :String?
+    var nombre_lugar :String?
     
-    init(locker_id: Int, usuario_id:Int, lugar_id:Int, precioTotal:Int, tiempoFin:String,tiempoInicio:String,tiempoRetorno:String) {
+    init(locker_id: Int, usuario_id:Int, lugar_id:Int, precioTotal:Int, tiempoFin:String,tiempoInicio:String,tiempoRetorno:String, nombre_lugar:String) {
         self.locker_id=locker_id
         self.usuario_id=usuario_id
         self.lugar_id=lugar_id
@@ -33,6 +34,7 @@ class ReservaBack: NSObject, Codable {
         self.tiempoFin=tiempoFin
         self.tiempoInicio=tiempoInicio
         self.tiempoRetorno=tiempoRetorno
+        self.nombre_lugar=nombre_lugar
     }
     
     /*init(pId :String, pIdLocker :String, pIdUsuario :String, pLugarReserva :String, pPrecioTotal :Double, pTiempoFin :Int, pTiempoInicio :Int, pTiempoRetorno :Int) {

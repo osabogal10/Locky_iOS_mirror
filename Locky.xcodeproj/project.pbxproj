@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C4366C117BE400AADCEFDEB /* Pods_Locky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE382DAEB6BFB0B5A74708D6 /* Pods_Locky.framework */; };
+		36B313A9942EFFED466B0E0D /* Pods_Locky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F379DADB1BC0B4E101986614 /* Pods_Locky.framework */; };
 		552F7EF7227370C900EC71DA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552F7EF6227370C900EC71DA /* NetworkManager.swift */; };
 		5533F9E82270CB50003B27C0 /* ReservaBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533F9E72270CB50003B27C0 /* ReservaBack.swift */; };
 		553833782273A3380053DDB5 /* ReservaFin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553833772273A3380053DDB5 /* ReservaFin.swift */; };
+		553B7151227678AD003607EE /* UsuarioBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B7150227678AD003607EE /* UsuarioBack.swift */; };
 		5557CB0D22487529009B7190 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557CB0C22487529009B7190 /* LaunchController.swift */; };
 		5593B5D6223D560F0054D94E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B5D5223D560F0054D94E /* SearchViewController.swift */; };
 		5593B5D8223D577E0054D94E /* MyLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B5D7223D577E0054D94E /* MyLocker.swift */; };
 		5597CC782241A1CE006B77AA /* CustomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5597CC772241A1CD006B77AA /* CustomItemView.xib */; };
 		5597CC7C2241A21A006B77AA /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597CC7A2241A219006B77AA /* Themes.swift */; };
 		5597CC7D2241A21A006B77AA /* places.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 5597CC7B2241A21A006B77AA /* places.geojson */; };
+		55B8145F227596A5001D7B1A /* ReservaHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8145E227596A5001D7B1A /* ReservaHistorial.swift */; };
+		55B814612275A874001D7B1A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B814602275A874001D7B1A /* RoundButton.swift */; };
 		55E4BF04223B1A6000BE62F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4BF03223B1A6000BE62F1 /* AppDelegate.swift */; };
 		55E4BF06223B1A6000BE62F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4BF05223B1A6000BE62F1 /* ViewController.swift */; };
 		55E4BF09223B1A6000BE62F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E4BF07223B1A6000BE62F1 /* Main.storyboard */; };
@@ -27,8 +30,12 @@
 		55FB5A71223C6DDA00395493 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FB5A70223C6DDA00395493 /* Profile.storyboard */; };
 		D2128AA62241AB2D00487BBD /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2128AA52241AB2D00487BBD /* Usuario.swift */; };
 		D2128AA82245903100487BBD /* ReservaHora.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2128AA72245903100487BBD /* ReservaHora.swift */; };
+		D21581A9227606E70059B738 /* FuncionaLockyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21581A8227606E70059B738 /* FuncionaLockyController.swift */; };
+		D21581AD227657670059B738 /* HistorialReservaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21581AC227657670059B738 /* HistorialReservaController.swift */; };
 		D2256E01224A79980072F630 /* Reserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2256E00224A79970072F630 /* Reserva.swift */; };
 		D2256E05224A8FC60072F630 /* DetailMyLockerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2256E04224A8FC60072F630 /* DetailMyLockerController.swift */; };
+		D23DFD7B227677A2003B148C /* Detalle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D23DFD7A227677A2003B148C /* Detalle.storyboard */; };
+		D23DFD7D227678C7003B148C /* DetalleHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFD7C227678C7003B148C /* DetalleHistorial.swift */; };
 		D2ACB44D22417DE300ADDA20 /* Lugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ACB44C22417DE300ADDA20 /* Lugar.swift */; };
 		D2ACB44F2241846700ADDA20 /* ReservarCasillero.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ACB44E2241846700ADDA20 /* ReservarCasillero.storyboard */; };
 		D2ACB451224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ACB450224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift */; };
@@ -42,12 +49,15 @@
 		552F7EF6227370C900EC71DA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5533F9E72270CB50003B27C0 /* ReservaBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaBack.swift; sourceTree = "<group>"; };
 		553833772273A3380053DDB5 /* ReservaFin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaFin.swift; sourceTree = "<group>"; };
+		553B7150227678AD003607EE /* UsuarioBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioBack.swift; sourceTree = "<group>"; };
 		5557CB0C22487529009B7190 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
 		5593B5D5223D560F0054D94E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5593B5D7223D577E0054D94E /* MyLocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocker.swift; sourceTree = "<group>"; };
 		5597CC772241A1CD006B77AA /* CustomItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomItemView.xib; sourceTree = "<group>"; };
 		5597CC7A2241A219006B77AA /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		5597CC7B2241A21A006B77AA /* places.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = places.geojson; sourceTree = "<group>"; };
+		55B8145E227596A5001D7B1A /* ReservaHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaHistorial.swift; sourceTree = "<group>"; };
+		55B814602275A874001D7B1A /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		55E4BF00223B1A6000BE62F1 /* Locky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E4BF03223B1A6000BE62F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55E4BF05223B1A6000BE62F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,8 +71,12 @@
 		8B5B39B7C029A2F5752A507C /* Pods-Locky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locky.debug.xcconfig"; path = "Target Support Files/Pods-Locky/Pods-Locky.debug.xcconfig"; sourceTree = "<group>"; };
 		D2128AA52241AB2D00487BBD /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		D2128AA72245903100487BBD /* ReservaHora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaHora.swift; sourceTree = "<group>"; };
+		D21581A8227606E70059B738 /* FuncionaLockyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncionaLockyController.swift; sourceTree = "<group>"; };
+		D21581AC227657670059B738 /* HistorialReservaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialReservaController.swift; sourceTree = "<group>"; };
 		D2256E00224A79970072F630 /* Reserva.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reserva.swift; sourceTree = "<group>"; };
 		D2256E04224A8FC60072F630 /* DetailMyLockerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMyLockerController.swift; sourceTree = "<group>"; };
+		D23DFD7A227677A2003B148C /* Detalle.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detalle.storyboard; sourceTree = "<group>"; };
+		D23DFD7C227678C7003B148C /* DetalleHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleHistorial.swift; sourceTree = "<group>"; };
 		D265FF99226FA64700B277EC /* Locky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Locky.entitlements; sourceTree = "<group>"; };
 		D2ACB44C22417DE300ADDA20 /* Lugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lugar.swift; sourceTree = "<group>"; };
 		D2ACB44E2241846700ADDA20 /* ReservarCasillero.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReservarCasillero.storyboard; sourceTree = "<group>"; };
@@ -70,7 +84,7 @@
 		D2ACB4522241886200ADDA20 /* Locker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locker.swift; sourceTree = "<group>"; };
 		D2AE9BB1223DA55000BA27C4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		D2AE9BB7224041AC00BA27C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FE382DAEB6BFB0B5A74708D6 /* Pods_Locky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F379DADB1BC0B4E101986614 /* Pods_Locky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,21 +92,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C4366C117BE400AADCEFDEB /* Pods_Locky.framework in Frameworks */,
+				36B313A9942EFFED466B0E0D /* Pods_Locky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52ACB6A06091F57C693AAE87 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FE382DAEB6BFB0B5A74708D6 /* Pods_Locky.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5593B5D2223D51FF0054D94E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +109,9 @@
 				D2ACB450224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift */,
 				5557CB0C22487529009B7190 /* LaunchController.swift */,
 				D2256E04224A8FC60072F630 /* DetailMyLockerController.swift */,
+				D21581A8227606E70059B738 /* FuncionaLockyController.swift */,
+				D21581AC227657670059B738 /* HistorialReservaController.swift */,
+				D23DFD7C227678C7003B148C /* DetalleHistorial.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -113,6 +122,7 @@
 				5597CC7B2241A21A006B77AA /* places.geojson */,
 				5597CC7A2241A219006B77AA /* Themes.swift */,
 				552F7EF6227370C900EC71DA /* NetworkManager.swift */,
+				55B814602275A874001D7B1A /* RoundButton.swift */,
 			);
 			name = Utils;
 			path = "New Group";
@@ -124,7 +134,7 @@
 				55E4BF02223B1A6000BE62F1 /* Locky */,
 				55E4BF01223B1A6000BE62F1 /* Products */,
 				5D53022D6D8FBA760BADCA5E /* Pods */,
-				52ACB6A06091F57C693AAE87 /* Frameworks */,
+				7101794322A40F8202DDAD2B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +172,7 @@
 				55FB5A6E223C6DC600395493 /* MyLocker.storyboard */,
 				55FB5A70223C6DDA00395493 /* Profile.storyboard */,
 				D2ACB44E2241846700ADDA20 /* ReservarCasillero.storyboard */,
+				D23DFD7A227677A2003B148C /* Detalle.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -175,6 +186,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7101794322A40F8202DDAD2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F379DADB1BC0B4E101986614 /* Pods_Locky.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D2ACB44B22417D8800ADDA20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +204,8 @@
 				D2256E00224A79970072F630 /* Reserva.swift */,
 				5533F9E72270CB50003B27C0 /* ReservaBack.swift */,
 				553833772273A3380053DDB5 /* ReservaFin.swift */,
+				55B8145E227596A5001D7B1A /* ReservaHistorial.swift */,
+				553B7150227678AD003607EE /* UsuarioBack.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -263,6 +284,7 @@
 				55FB5A6D223C6DA200395493 /* Search.storyboard in Resources */,
 				5597CC782241A1CE006B77AA /* CustomItemView.xib in Resources */,
 				5597CC7D2241A21A006B77AA /* places.geojson in Resources */,
+				D23DFD7B227677A2003B148C /* Detalle.storyboard in Resources */,
 				55E4BF09223B1A6000BE62F1 /* Main.storyboard in Resources */,
 				D2AE9BB8224041AC00BA27C4 /* GoogleService-Info.plist in Resources */,
 			);
@@ -401,9 +423,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5593B5D6223D560F0054D94E /* SearchViewController.swift in Sources */,
+				D21581A9227606E70059B738 /* FuncionaLockyController.swift in Sources */,
 				D2AE9BB2223DA55000BA27C4 /* ProfileTableViewController.swift in Sources */,
 				D2ACB451224184CC00ADDA20 /* ReservarCasilleroControllerViewController.swift in Sources */,
 				5533F9E82270CB50003B27C0 /* ReservaBack.swift in Sources */,
+				55B814612275A874001D7B1A /* RoundButton.swift in Sources */,
 				552F7EF7227370C900EC71DA /* NetworkManager.swift in Sources */,
 				55E4BF06223B1A6000BE62F1 /* ViewController.swift in Sources */,
 				553833782273A3380053DDB5 /* ReservaFin.swift in Sources */,
@@ -412,11 +436,15 @@
 				55E4BF04223B1A6000BE62F1 /* AppDelegate.swift in Sources */,
 				D2128AA62241AB2D00487BBD /* Usuario.swift in Sources */,
 				D2128AA82245903100487BBD /* ReservaHora.swift in Sources */,
+				D23DFD7D227678C7003B148C /* DetalleHistorial.swift in Sources */,
+				D21581AD227657670059B738 /* HistorialReservaController.swift in Sources */,
 				D2256E01224A79980072F630 /* Reserva.swift in Sources */,
 				D2256E05224A8FC60072F630 /* DetailMyLockerController.swift in Sources */,
+				55B8145F227596A5001D7B1A /* ReservaHistorial.swift in Sources */,
 				5593B5D8223D577E0054D94E /* MyLocker.swift in Sources */,
 				D2ACB44D22417DE300ADDA20 /* Lugar.swift in Sources */,
 				D2ACB4532241886200ADDA20 /* Locker.swift in Sources */,
+				553B7151227678AD003607EE /* UsuarioBack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

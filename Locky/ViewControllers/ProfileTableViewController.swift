@@ -15,6 +15,9 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
     var urlImagen :String? = "Paila no cargo"
     var emailPerfil :String? = "Paila no cargo"
     var namePerfil :String? = "Paila no cargo"
+    
+    var reservas: [ReservaHistorial] = []
+    let net : NetworkManager = NetworkManager()
   
     @IBOutlet weak var labName: UILabel!
     @IBOutlet weak var labEmail: UILabel!
@@ -28,6 +31,7 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
     var lockerLibre :Locker = Locker(pId: "PRUEBA", pNumero: 0, pTamano: "", pPrecio: 0.0, pEstado: "", pLugar: "", pReservas: [ReservaHora]())
     var data :[Locker] = [Locker(pId: "PRUEBA", pNumero: 0, pTamano: "", pPrecio: 0.0, pEstado: "", pLugar: "", pReservas: [ReservaHora]())]
 
+    let preferences = UserDefaults.standard
 
     
     override func viewDidLoad() {
@@ -39,13 +43,13 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
         
         let preferences = UserDefaults.standard
         
-        let key = "urlImagenPerfil"
+      
         
-        if preferences.object(forKey: key) == nil {
+        if preferences.object(forKey: "urlImagenPerfil") == nil {
             //  Doesn't exist
             print("Perrito no encontro nada con esa key")
         } else {
-            self.urlImagen = preferences.object(forKey: key) as? String
+            self.urlImagen = preferences.object(forKey: "urlImagenPerfil") as? String
         }
         
         if preferences.object(forKey: "emailPerfil") == nil {
@@ -62,26 +66,20 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
             self.namePerfil = preferences.object(forKey: "namePerfil") as? String
         }
         
+       
         self.labName!.text = self.emailPerfil!
         self.labEmail!.text = self.namePerfil!
+        if (self.urlImagen != "nada") {
+            get_image(self.urlImagen!, self.imagenProfile)
+        } else {
+            self.imagenProfile!.image = UIImage(named: "user_male")
+            let templateImagen = self.imagenProfile!.image?.withRenderingMode(.alwaysTemplate)
+            self.imagenProfile!.image = templateImagen
+            self.imagenProfile!.tintColor = UIColor.blue
+        }
         
-        get_image(self.urlImagen!, self.imagenProfile)
-        
-        //self.inicializarLockers(pLugarLockers: "Parque Germania")
-        //self.agregarReservacionLocker(pLugar: "Parque de la 93", pLocker: "Parque de la 93 - locker3", pIdReserva: "idReserva", pTiempoInicio: 123456789, pTiempoFin: 987654321)
-        //self.agregarReservacionUsuario(pIdUsuario: "EstebanR1099", pLugar: "Parque de la 93", pLocker: "Parque de la 93 - locker3", pIdReserva: "idReserva", pTiempoInicio: 123456789, pTiempoFin: 987654321, pPrecioTotal: 5000.0)
-        //self.agregarReservacionReservaciones(pIdUsuario: "EstebanR1099", pLugar: "Parque de la 93", pLocker: "Parque de la 93 - locker3", pIdReserva: "idReserva", pTiempoInicio: 123456789, pTiempoFin: 987654321, pPrecioTotal: 5000.0)
-        
-        // Do any additional setup after loading the view.
     }
     
-    func setUrlImage (urlImagen : String)
-    {
-        print("Entro a actualizar la URL de la imagen de perfil")
-        self.urlImagen = urlImagen
-        print("La url despues de la actualizacion fue: \(self.urlImagen)")
-        
-    }
     
     func get_image(_ url_str:String, _ imageView:UIImageView)
     {
@@ -122,137 +120,6 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
         task.resume()
     }
     
-    //Jugano con firebase.
-    
-    //Agregar un usuario -- toca mejorarlo segunda entrega
-    func agregarUsuario() {
-        self.ref.child("Usuarios/EstebanR1099/nombre").setValue("Esto es una prueba")
-    }
-    
-    //Agregar una reserva al sistema
-    func agregarReservacionAlSistema(idUsuario :String, lugar :String, locker :String, idReserva :String, tiempoInicio :Int, tiempoFin :Int, precioTotal :Double) {
-        print("Va a agregar una reservacion al sistemas")
-        
-        self.agregarReservacionLocker(pLugar: lugar, pLocker: locker, pIdReserva: idReserva, pTiempoInicio: tiempoInicio, pTiempoFin: tiempoFin)
-        self.agregarReservacionUsuario(pIdUsuario: idUsuario, pLugar: lugar, pLocker: locker, pIdReserva: idReserva, pTiempoInicio: tiempoInicio, pTiempoFin: tiempoFin, pPrecioTotal: precioTotal)
-        self.agregarReservacionReservaciones(pIdUsuario: idUsuario, pLugar: lugar, pLocker: locker, pIdReserva: idReserva, pTiempoInicio: tiempoInicio, pTiempoFin: tiempoFin, pPrecioTotal: precioTotal)
-        
-        print("Agrego una reservacion al sistema")
-    }
-    
-    //Agregar una reservacion al locker.
-    func agregarReservacionLocker(pLugar :String, pLocker :String, pIdReserva :String, pTiempoInicio :Int, pTiempoFin :Int) {
-        print("Va a agregar una reservacion a un locker")
-    self.ref.child("Lugares").child(pLugar).child("Lockers").child(pLocker).child("Reservaciones").child(pIdReserva).setValue(["id":pIdReserva, "tiempoFin":pTiempoFin, "tiempoInicio":pTiempoInicio])
-        
-        print("Agrego una reservacion a un locker")
-    }
-    //Agregar una reservacion al usuario.
-    func agregarReservacionUsuario(pIdUsuario :String, pLugar :String, pLocker :String, pIdReserva :String, pTiempoInicio :Int, pTiempoFin :Int, pPrecioTotal :Double) {
-        print("Va a agregar una reservacion a un usuario")
-        self.ref.child("Usuarios").child(pIdUsuario).child("Reservaciones").child(pIdReserva).setValue(["id":pIdReserva, "idLocker":pLocker, "idUsuario":pIdUsuario, "lugarReserva":pLugar, "precioTotal":pPrecioTotal, "tiempoFin":pTiempoFin, "tiempoInicio":pTiempoInicio, "tiempoRetorno":0])
-        
-        print("Agrego una reservacion a un usuario")
-    }
-    //Agrega una reservacion a las reservaciones
-    func agregarReservacionReservaciones(pIdUsuario :String, pLugar :String, pLocker :String, pIdReserva :String, pTiempoInicio :Int, pTiempoFin :Int, pPrecioTotal :Double) {
-        print("Va a agregar una reservacion a reservas")
-        self.ref.child("Reservaciones").child(pIdReserva).setValue(["id":pIdReserva, "idLocker":pLocker, "idUsuario":pIdUsuario, "lugarReserva":pLugar, "precioTotal":pPrecioTotal, "tiempoFin":pTiempoFin, "tiempoInicio":pTiempoInicio, "tiempoRetorno":0])
-        
-        print("Agrego una reservacion a un reservas")
-    }
-    
-    //--- leer los lockers de un lugar
-    func inicializarLockers(pLugarLockers :String) {
-        descargarLockersLugar(pLugar: pLugarLockers){arreglo in
-            self.data = arreglo
-            print("\(self.data.count) numero elementos data OUT")
-            self.filtarLocker(pTamano: "Grande", pTiempoInicio: 123456789, pTiempoFin: 987654321)
-            print("\(self.lockerLibre.id) ---- el id del locker que se encuentra libre")
-            //Hacer las funciones para filtrar
-        }
-    }
-    
-
-    func descargarLockersLugar(pLugar :String, completion: @escaping ([Locker]) -> Void) {
-        var lockerArray = [Locker] ()
-        ref.child("Lugares").child("\(pLugar)").queryOrderedByKey().observe( .value, with: { (snapshot) in
-            // Get locker value
-            if var snap = snapshot.value as? [String : AnyObject] {
-                let lugar = snapshot.key
-                print("\(lugar)--------------------------lugar")
-                if let lockers = snap["Lockers"] as? [String : AnyObject] {
-                    for locker in lockers {
-                        if var infoLocker = locker.value as? [String : AnyObject] {
-                            let idLocker = locker.key
-                            let numero = infoLocker["numero"] as? Int
-                            let estado = infoLocker["estado"] as? String
-                            let precio = infoLocker["precioHora"] as? Double
-                            let tamano = infoLocker["tamano"] as? String
-                            print("\(idLocker)--------------------------id locker")
-                            print("\(numero!)--------------------------numero")
-                            print("\(estado!)--------------------------estado")
-                            print("\(precio!)--------------------------precio")
-                            print("\(tamano!)--------------------------tamano")
-                            var listaReservasLocker :[ReservaHora] = []
-                            var reservaLocker :ReservaHora? = nil
-                            if let reservas = infoLocker["Reservaciones"] as? [String : AnyObject] {
-                                for reserva in reservas {
-                                    print("Reservaciones")
-                                    if var infoReserva = reserva.value as? [String : AnyObject] {
-                                        let idReserva = reserva.key
-                                        let horaInicio = infoReserva["tiempoInicio"] as? Int
-                                        let horaFin = infoReserva["tiempoFin"] as? Int
-                                        print("\(idReserva)--------------------------id reserva")
-                                        print("\(horaInicio!)--------------------------hora inicio")
-                                        print("\(horaFin!)--------------------------hora fin")
-                                        reservaLocker = ReservaHora(pId: idReserva, pHoraInicio: horaInicio!, pHoraFin: horaFin!)
-                                        listaReservasLocker.append(reservaLocker!)
-                                    }
-                                }
-                            }
-                            let locker :Locker = Locker(pId: idLocker, pNumero: numero!, pTamano: tamano!, pPrecio: precio!, pEstado: estado!, pLugar: lugar, pReservas: listaReservasLocker)
-                            print("\(locker)-------------------------- Locker")
-                            lockerArray.append(locker)
-                        }
-                    }
-                }
-            }
-            self.TableView.reloadData()
-            completion (lockerArray)
-        }) { (error) in
-            print("Hubo un error cargardo el locker -----")
-        }
-    }
-    
-    //Filtar el primer locker libre que cumpla con el tamano y
-    func filtarLocker(pTamano :String, pTiempoInicio :Int, pTiempoFin :Int) {
-        if self.data.isEmpty == false {
-            var tamano :String
-            var tiempoInicio :Int
-            var estaSinReserva :Bool = true
-            var tiempoFin :Int
-            for locker in self.data {
-                tamano = locker.tamano
-                if tamano == pTamano {
-                    for reserva in locker.reservas {
-                        tiempoInicio = reserva.horaInicio
-                        tiempoFin = reserva.horaFin
-                        if (tiempoInicio < pTiempoInicio && tiempoFin < pTiempoInicio) || (tiempoInicio > pTiempoInicio && tiempoFin > pTiempoFin){
-                            estaSinReserva = true
-                        } else{
-                            estaSinReserva = false
-                            break
-                        }
-                    }
-                }
-                if estaSinReserva == true {
-                    self.lockerLibre = locker
-                    break
-                }
-            }
-        }
-    }
     
     //Crear la tableView de perfil
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -289,5 +156,78 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Entro a seleccionar una celda del tableView de profile")
+        let index = indexPath.row
+        print("El index es: \(index)")
+        switch index {
+        case 0:
+            print("Entro 0")
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let dVc = storyBoard.instantiateViewController(withIdentifier: "FuncionaLockyController") as! FuncionaLockyController
+            self.navigationController?.pushViewController(dVc, animated: true )
+        case 1:
+            getReservas()
+        case 2:
+            
+            let preferences = UserDefaults.standard
+            
+            
+            preferences.set("nada", forKey: "urlImagenPerfil")
+            preferences.set("nada", forKey: "emailPerfil")
+            preferences.set("nada", forKey: "namePerfil")
+            
+            
+            //  Save to disk
+            let didSave = preferences.synchronize()
+            
+            if !didSave {
+                //  Couldn't save (I've never seen this happen in real world testing)
+                print("No guardo en las preferencias")
+            }
+            
+            
+            if preferences.object(forKey: "manera") as? String == "facebook" {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let dVc = storyBoard.instantiateViewController(withIdentifier: "MainController") as! LaunchController
+                dVc.cerrarFacebook()
+            } else {
+                
+            }
+            preferences.set("nada", forKey: "manera")
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let dVc = storyBoard.instantiateViewController(withIdentifier: "MainController") as! LaunchController
+            self.present(dVc, animated: true, completion: nil)
+            
+        default:
+            return
+        }
+    }
+    
+    func getReservas(){
+        var user_id:String = "1"
+        if preferences.object(forKey: "idPerfil") == nil {
+            //  Doesn't exist
+            print("Perrito no encontro nada con esa key")
+        } else {
+            user_id = "\((preferences.object(forKey: "idPerfil") as? Int)!)"
+        }
+        net.getHistorialReservas(byId: user_id) { (response) in
+            print("Hay \(response?.count) reservas en el historial")
+            if (response?.count)! > 0{
+                self.reservas = response!
+                print(self.reservas[0].nombre_lugar)
+            }
+            else{
+                let vacio = ReservaHistorial(locker_id: 0, usuario_id: 0, precio_total: 0, tiempo_fin: "", tiempo_inicio: "", tiempo_retorno: "", nombre_lugar: "No tienes reservas activas")
+                self.reservas = [vacio]
+            }
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let dVc = storyBoard.instantiateViewController(withIdentifier: "HistorialReservaController") as! HistorialReservaController
+            dVc.listaCeldas = self.reservas
+            self.navigationController?.pushViewController(dVc, animated: true )
+        }
+    }
 
 }

@@ -23,12 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Override point for customization after application launch.
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.tintColor = UIColor.white
-        navBarAppearance.barTintColor = UIColor(red: 0, green: 81/255, blue: 1, alpha: 1)
+        navBarAppearance.barTintColor = UIColor(red: 0, green: 170/255, blue: 245/255, alpha: 1)
         navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle  = UIStatusBarStyle.lightContent
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
 //        print(self.window!.rootViewController?.classForCoder)
 //        print(self.window!.rootViewController?.)
 //        if let tabBarController = self.window!.rootViewController as? UITabBarController {
@@ -37,13 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+               
         return true
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
-            print("Faild to login  with google", err)
+            print("Failed to login  with google", err)
         }
         
         print("Successfully logged into google", user)
